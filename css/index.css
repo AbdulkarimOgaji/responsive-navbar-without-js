@@ -1,0 +1,138 @@
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+}
+
+header.navBar {
+  position: absolute;
+  z-index: 999;
+  text-align: center;
+  width: 100%;
+  background: rgba(10, 161, 134, 0.651);
+}
+header.navBar .ssa {
+  margin-top: 200px;
+}
+header.navBar nav {
+  background: inherit;
+  width: 100%;
+  position: absolute;
+  text-align: start;
+  top: 100%;
+  left: 0;
+  transform: scale(1, 0);
+  transform-origin: top;
+  transition: transform 400ms ease-in-out;
+}
+header.navBar nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+header.navBar nav ul li {
+  margin-bottom: 1rem;
+  margin-left: 1rem;
+}
+header.navBar nav a {
+  text-decoration: none;
+  color: white;
+  text-transform: uppercase;
+  font-size: 1.2rem;
+  opacity: 0;
+  transition: opacity 250ms ease;
+}
+header.navBar nav a:hover {
+  color: #000;
+}
+header.navBar .nav-toggler {
+  display: none;
+}
+header.navBar .nav-toggler:checked ~ nav {
+  transform: scale(1, 1);
+}
+header.navBar .nav-toggler:checked ~ nav a {
+  opacity: 1;
+  transition: opacity 250ms ease 250ms;
+}
+header.navBar .nav-toggler-label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  margin-left: 1rem;
+}
+header.navBar .nav-toggler-label span,
+header.navBar .nav-toggler-label span::before,
+header.navBar .nav-toggler-label span::after {
+  display: block;
+  height: 3px;
+  background: white;
+  border-radius: 3px;
+  position: relative;
+  width: 1.5rem;
+}
+header.navBar .nav-toggler-label span::before,
+header.navBar .nav-toggler-label span::after {
+  position: absolute;
+  content: "";
+}
+header.navBar .nav-toggler-label span:before {
+  top: -7px;
+}
+header.navBar .nav-toggler-label span:after {
+  bottom: -7px;
+}
+
+@media screen and (min-width: 800px) {
+  header.navBar {
+    display: grid;
+    grid-template-columns: 1fr auto minmax(600px, 1fr) 1fr;
+  }
+  header.navBar .nav-toggler-label {
+    display: none;
+  }
+  header.navBar .logo {
+    grid-column: 2/span 1;
+  }
+  header.navBar nav {
+    all: unset;
+    grid-column: 3/span 1;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+  }
+  header.navBar nav a {
+    opacity: 1;
+    position: relative;
+  }
+  header.navBar nav a::before {
+    content: "";
+    height: 5px;
+    top: -0.6rem;
+    position: absolute;
+    left: 0;
+    right: 0;
+    background-color: black;
+    border-radius: 3px;
+    transform: scale(0, 0);
+    transition: transform 400ms ease;
+  }
+  header.navBar nav a:hover::before {
+    transform: scale(1);
+  }
+  header.navBar nav ul {
+    display: flex;
+    justify-content: flex-end;
+  }
+  header.navBar nav ul li {
+    margin-bottom: 0;
+    margin-left: 3rem;
+  }
+}
