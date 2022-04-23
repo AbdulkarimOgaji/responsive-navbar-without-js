@@ -1,4 +1,11 @@
+
+$darkTheme: false !default;
+
 $primary: rgba(10, 161, 134, 0.651);
+@if $darkTheme {
+  $primary: black;
+}
+
 
 *::before,
 *::after {
